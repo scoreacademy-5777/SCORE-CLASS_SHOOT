@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class Shoot Setup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://github.com/scoreacademy-5777/SCORE-Class-shoot/blob/main/SCORE%20Class%20shoot_bg.jpg?raw=true') no-repeat center center;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      color: #10084e;
+    }
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .loader.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader img {
+      width: 400px;
+      height: auto;
+    }
+
+    .logo-container img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    .heading {
+      margin: 20px 0 30px;
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(128, 0, 255, 0.2);
+      text-align: center;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .checklist-title {
+      text-align: center;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin: 20px 0 10px;
+      
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .checklist input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(to right, #ff2c8a, #ff5aff);
+      border: none;
+      padding: 12px;
+      font-weight: 700;
+      color: white;
+      border-radius: 12px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 4px 14px rgba(255, 92, 186, 0.5);
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.9;
+    }
+
+    .upload-btn {
+      display: block;
+      width: 100%;
+      background: white;
+      border: 2px solid #10084e;
+      padding: 12px;
+      font-weight: 500;
+      color: #10084e;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 15px;
+      box-shadow: 0 4px 14px rgba(16, 8, 78, 0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .upload-btn:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <img src="https://github.com/scoreacademy-5777/SCORE-Class-shoot/blob/main/SCORE%20ACADEMY%20ROUNDED%20RECTANGLE%20Logo.png?raw=true" alt="Loading Logo">
+  </div>
+
+  <div class="logo-container">
+    <img src="https://github.com/scoreacademy-5777/SCORE-Class-shoot/blob/main/SCORE_LOGO.png?raw=true" alt="SCORE Academy Logo" />
+  </div>
+  <h1 class="heading">CLASS SHOOT</h1>
+  <form class="container" action="https://formspree.io/f/mnndrnnp" method="POST" id="shootForm">
+    <div class="form-group">
+      <label for="faculty">Faculty name</label>
+      <input type="text" id="faculty" name="faculty" />
+    </div>
+    <div class="form-group">
+      <label for="topic">Topic</label>
+      <input type="text" id="topic" name="topic" />
+    </div>
+
+    <div class="checklist-title">Checklist</div>
+    <ul class="checklist">
+      <li><input type="checkbox" id="item1" name="checklist[]" value="Not wearing a green outfit" /><label for="item1">Not wearing a green outfit</label></li>
+      <li><input type="checkbox" id="item2" name="checklist[]" value="Ring lights are on" /><label for="item2">Ring lights are on</label></li>
+      <li><input type="checkbox" id="item3" name="checklist[]" value="Camera battery is above 75%" /><label for="item3">Camera battery is above 75%</label></li>
+      <li><input type="checkbox" id="item4" name="checklist[]" value="Laptop charger is plugged in" /><label for="item4">Laptop charger is plugged in</label></li>
+      <li><input type="checkbox" id="item5" name="checklist[]" value="Mic is clipped to collar" /><label for="item5">Mic is clipped to collar</label></li>
+      <li><input type="checkbox" id="item6" name="checklist[]" value="Test video recorded to check camera and mic" /><label for="item6">Test video recorded to check camera and mic</label></li>
+    </ul>
+    <button type="submit" class="submit-btn">SUBMIT</button>
+    <a href="https://learn.scoreacademytvm.in/" class="upload-btn" target="_blank">Upload Raw Video to Portal</a>
+  </form>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        loader.classList.add('hide');
+      }, 1000);
+    });
+
+    const form = document.getElementById('shootForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          document.querySelectorAll('.checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+          alert('Form submitted successfully!');
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      }).catch(error => {
+        alert('Error submitting the form');
+      });
+    });
+  </script>
+</body>
+</html>
